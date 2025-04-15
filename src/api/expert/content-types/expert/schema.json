@@ -37,6 +37,64 @@
       "relation": "oneToMany",
       "target": "api::post.post",
       "mappedBy": "expert"
+    },
+    "bio": {
+      "type": "text",
+      "minLength": 50,
+      "maxLength": 500,
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true,
+      "unique": false
+    },
+    "phone": {
+      "type": "string",
+      "regex": "^(\\+90|0)?\\s?5\\d{2}\\s?\\d{3}\\s?\\d{4}$",
+      "unique": false,
+      "required": true,
+      "maxLength": 16,
+      "minLength": 10
+    },
+    "expertTitle": {
+      "type": "enumeration",
+      "enum": [
+        "Psk.",
+        "Uzm. Psk.",
+        "Dr.",
+        "Dr. Psk.",
+        "Uzm. Dr.",
+        "Prof. Dr.",
+        "Doç. Dr.",
+        "Arş. Gör.",
+        "Psk. Dan.",
+        "Uzm. Psk. Dan.",
+        "Ped.",
+        "Dr. Ped.",
+        "Terapist",
+        "Uzm. Terapist",
+        "EMDR Terapisti"
+      ],
+      "required": false,
+      "default": "Psk."
+    },
+    "branch": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::branch.branch",
+      "inversedBy": "experts"
+    },
+    "priority": {
+      "type": "integer",
+      "max": 50,
+      "min": 1
+    },
+    "specialities": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::speciality.speciality",
+      "mappedBy": "experts"
     }
   }
 }
