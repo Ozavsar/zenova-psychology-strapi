@@ -41,14 +41,14 @@
       "target": "api::expert.expert",
       "inversedBy": "posts"
     },
-    "cover_image": {
+    "coverImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
+      ]
     }
   }
 }
